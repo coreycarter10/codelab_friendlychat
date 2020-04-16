@@ -44,4 +44,8 @@ class ChatMessage extends StatelessWidget {
       ),
     );
   }
+
+  void dispose() {
+    animCtrl?.dispose();
+  }
 }

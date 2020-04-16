@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     final msg = ChatMessage(
       text: text,
       animCtrl: AnimationController(
-        duration: const Duration(milliseconds: 700),
+        duration: const Duration(milliseconds: 500),
         vsync: this,
       ),
     );
@@ -85,5 +85,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     });
 
     msg.animCtrl.forward();
+  }
+
+  void dispose() {
+    for (ChatMessage msg in _messages) {
+      msg.dispose();
+    }
+
+    super.dispose();
   }
 }
